@@ -28,6 +28,10 @@ export default {
                     return "Bandiera non disponibile"   
             }
             return imgUrl
+        },
+
+        voteTrasform(vote){
+            return Math.floor(vote / 2) + 1;
         }
     }
 }
@@ -42,7 +46,7 @@ export default {
                 <p>Titolo: {{curMovie.title}}</p>
                 <p>Titolo originale: {{curMovie.original_title}}</p>
                 <p>Lingua originale: {{curMovie.original_language}}</p>
-                <p>Voto: {{curMovie.vote_average}}</p>           
+                <p>Voto: {{voteTrasform(curMovie.vote_average)}}</p>           
                 <img :src="showFlag(curMovie.original_language)" alt="" v-if="showFlag(curMovie.original_language) != 'Bandiera non disponibile'">
                 <p v-else>{{showFlag(curMovie.original_language)}}</p>
             </li>
@@ -56,7 +60,7 @@ export default {
                 <p>Titolo: {{curTv.name}}</p>
                 <p>Titolo originale: {{curTv.original_name}}</p>
                 <p>Lingua originale: {{curTv.original_language}}</p>
-                <p>Voto: {{curTv.vote_average}}</p>           
+                <p>Voto: {{voteTrasform(curTv.vote_average)}}</p>           
                 <img :src="showFlag(curTv.original_language)" alt="" v-if="showFlag(curTv.original_language) != 'Bandiera non disponibile'">
                 <p v-else>{{showFlag(curTv.original_language)}}</p>
             </li>
