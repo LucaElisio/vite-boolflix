@@ -21,23 +21,23 @@ components: { AppSearchBar, AppSearchButton },
             params: {
             api_key: this.store.apiKey,
             query: this.store.searchQuery
-        }
-        }).then((resp) => {
-        // console.log(resp);
-        this.store.moviesArray = resp.data.results;
-        })
+            }
+            }).then((resp) => {
+            // console.log(resp);
+            this.store.moviesArray = resp.data.results;
+            })
 
-        // Chiamata serie tv
-        axios.get("https://api.themoviedb.org/3/search/tv", {
-            params: {
-            api_key: this.store.apiKey,
-            query: this.store.searchQuery
-        }
-        }).then((resp) => {
-        this.store.tvArray = resp.data.results;
-        console.log(this.store.tvArray);
-        })
-        }
+            // Chiamata serie tv
+            axios.get("https://api.themoviedb.org/3/search/tv", {
+                params: {
+                api_key: this.store.apiKey,
+                query: this.store.searchQuery
+            }
+            }).then((resp) => {
+            this.store.tvArray = resp.data.results;
+            console.log(this.store.tvArray);
+            })
+        },
     }
     
 }

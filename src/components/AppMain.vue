@@ -31,7 +31,14 @@ export default {
         },
 
         voteTrasform(vote){
-            return Math.floor(vote / 2) + 1;
+            vote = Math.floor(vote / 2) + 1
+            if (vote < 0){
+                return 0
+            } else if (vote > 5 )
+                return 5
+            else {
+                return vote
+            }
         }
     }
 }
@@ -63,7 +70,9 @@ export default {
                 <p>Titolo: {{curTv.name}}</p>
                 <p>Titolo originale: {{curTv.original_name}}</p>
                 <p>Lingua originale: {{curTv.original_language}}</p>
-                <p>Voto: {{voteTrasform(curTv.vote_average)}}</p>           
+                <p>Voto: {{voteTrasform(curTv.vote_average)}}</p>
+                <span v-for="curStar in voteTrasform(curTv.vote_average)"><i class="fa-solid fa-star"></i></span>
+                <span v-for="curStar in (5 - voteTrasform(curTv.vote_average))"><i class="fa-regular fa-star"></i></span><br>   
                 <img :src="showFlag(curTv.original_language)" alt="" v-if="showFlag(curTv.original_language) != 'Bandiera non disponibile'">
                 <p v-else>{{showFlag(curTv.original_language)}}</p>
             </li>
