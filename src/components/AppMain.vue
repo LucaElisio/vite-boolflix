@@ -38,6 +38,7 @@ export default {
         <h2>FILM</h2>
         <ul>
             <li v-for="curMovie in this.store.moviesArray">
+                <img :src="this.store.posterUrl + curMovie.poster_path" alt="">
                 <p>Titolo: {{curMovie.title}}</p>
                 <p>Titolo originale: {{curMovie.original_title}}</p>
                 <p>Lingua originale: {{curMovie.original_language}}</p>
@@ -51,6 +52,7 @@ export default {
         <h2>SERIE TV</h2>
         <ul>
             <li v-for="curTv in this.store.tvArray">
+                <img :src="this.store.posterUrl + curTv.poster_path" alt="">
                 <p>Titolo: {{curTv.name}}</p>
                 <p>Titolo originale: {{curTv.original_name}}</p>
                 <p>Lingua originale: {{curTv.original_language}}</p>
