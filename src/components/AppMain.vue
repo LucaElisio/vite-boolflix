@@ -46,7 +46,10 @@ export default {
                 <p>Titolo: {{curMovie.title}}</p>
                 <p>Titolo originale: {{curMovie.original_title}}</p>
                 <p>Lingua originale: {{curMovie.original_language}}</p>
-                <p>Voto: {{voteTrasform(curMovie.vote_average)}}</p>           
+                <p>Voto: {{voteTrasform(curMovie.vote_average)}}</p>
+                <span v-for="curStar in voteTrasform(curMovie.vote_average)"><i class="fa-solid fa-star"></i></span>
+                <span v-for="curStar in (5 - voteTrasform(curMovie.vote_average))"><i class="fa-regular fa-star"></i></span><br>          
+
                 <img :src="showFlag(curMovie.original_language)" alt="" v-if="showFlag(curMovie.original_language) != 'Bandiera non disponibile'">
                 <p v-else>{{showFlag(curMovie.original_language)}}</p>
             </li>
