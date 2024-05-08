@@ -2,9 +2,13 @@
 import axios from 'axios';
 import { store } from './store';
 import AppMain from './components/AppMain.vue';
+import AppSearchBar from './components/AppSearchBar.vue';
 
 export default {
-  components: { AppMain },
+  components: { 
+    AppMain,
+    AppSearchBar
+  },
   data() {
     return {
       store,
@@ -28,6 +32,7 @@ export default {
 </script>
 
 <template>
+  <AppSearchBar />
   <AppMain />
 </template>
 
