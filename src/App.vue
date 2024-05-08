@@ -32,7 +32,7 @@ export default {
       // console.log(resp);
       // Salvo l'array di risultati nello store
       this.store.moviesArray = resp.data.results;
-      console.log(this.store.moviesArray);
+      // console.log(this.store.moviesArray);
     })
   },
 
@@ -50,6 +50,17 @@ export default {
       }).then((resp) => {
         // console.log(resp);
         this.store.moviesArray = resp.data.results;
+      })
+
+      // Chiamata serie tv
+      axios.get("https://api.themoviedb.org/3/search/tv", {
+        params: {
+          api_key: this.store.apiKey,
+          query: this.store.searchQuery
+        }
+      }).then((resp) => {
+        this.store.tvArray = resp.data.results;
+        console.log(this.store.tvArray);
       })
     }
   }

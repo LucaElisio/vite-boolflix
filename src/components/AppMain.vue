@@ -34,16 +34,32 @@ export default {
 </script>
 
 <template>
-    <ul>
-        <li v-for="curMovie in this.store.moviesArray">
-            <p>Titolo: {{curMovie.title}}</p>
-            <p>Titolo originale: {{curMovie.original_title}}</p>
-            <p>Lingua originale: {{curMovie.original_language}}</p>
-            <p>Voto: {{curMovie.vote_average}}</p>           
-            <img :src="showFlag(curMovie.original_language)" alt="" v-if="showFlag(curMovie.original_language) != 'Bandiera non disponibile'">
-            <p v-else>{{showFlag(curMovie.original_language)}}</p>
-        </li>
-    </ul>
+    <div class="movies-list">
+        <h2>FILM</h2>
+        <ul>
+            <li v-for="curMovie in this.store.moviesArray">
+                <p>Titolo: {{curMovie.title}}</p>
+                <p>Titolo originale: {{curMovie.original_title}}</p>
+                <p>Lingua originale: {{curMovie.original_language}}</p>
+                <p>Voto: {{curMovie.vote_average}}</p>           
+                <img :src="showFlag(curMovie.original_language)" alt="" v-if="showFlag(curMovie.original_language) != 'Bandiera non disponibile'">
+                <p v-else>{{showFlag(curMovie.original_language)}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="tv-list">
+        <h2>SERIE TV</h2>
+        <ul>
+            <li v-for="curTv in this.store.tvArray">
+                <p>Titolo: {{curTv.name}}</p>
+                <p>Titolo originale: {{curTv.original_name}}</p>
+                <p>Lingua originale: {{curTv.original_language}}</p>
+                <p>Voto: {{curTv.vote_average}}</p>           
+                <img :src="showFlag(curTv.original_language)" alt="" v-if="showFlag(curTv.original_language) != 'Bandiera non disponibile'">
+                <p v-else>{{showFlag(curTv.original_language)}}</p>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <style scoped lang="scss">
