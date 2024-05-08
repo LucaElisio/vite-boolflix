@@ -3,11 +3,15 @@ import axios from 'axios';
 import { store } from './store';
 import AppMain from './components/AppMain.vue';
 import AppSearchBar from './components/AppSearchBar.vue';
+import AppSearchButton from './components/AppSearchButton.vue';
+
+
 
 export default {
   components: { 
     AppMain,
-    AppSearchBar
+    AppSearchBar,
+    AppSearchButton,
   },
   data() {
     return {
@@ -33,6 +37,7 @@ export default {
 
 <template>
   <AppSearchBar />
+  <AppSearchButton />
   <AppMain />
 </template>
 
