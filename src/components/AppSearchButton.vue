@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <button>Vai</button>
+    <button @click="$emit('searchClicked')">Vai</button>
 </template>
 
 <style scoped>
